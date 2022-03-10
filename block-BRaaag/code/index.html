@@ -68,7 +68,7 @@
       function createMovieUI() {
         let movies = allMovies.map((movie, i) => {
           return (
-            <li>
+            <li key={movie.name}>
               <p htmlFor={i}>{movie.name}</p>
               <span data-id={i} onClick={changeWatch}>
                 {movie.watched}
