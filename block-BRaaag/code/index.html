@@ -69,8 +69,8 @@
         let movies = allMovies.map((movie, i) => {
           return (
             <li>
-              <p for={i}>{movie.name}</p>
-              <span data-id={i} onClick="changeWatch()">
+              <p htmlFor={i}>{movie.name}</p>
+              <span data-id={i} onClick={changeWatch}>
                 {movie.watched}
               </span>
             </li>
