@@ -5,6 +5,7 @@ body {
 }
 
 .container {
+  width: 450px;
   border: 8px solid rgb(233, 232, 232);
   background-color: white;
   box-shadow: 2px 2px 4px 2px gray;
@@ -27,7 +28,7 @@ header h2 {
 }
 
 img {
-  width: 500px;
+  width: 450px;
   background-size: contain;
 }
 
