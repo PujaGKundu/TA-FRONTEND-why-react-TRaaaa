@@ -38,6 +38,15 @@ img {
   right: 20px;
 }
 
+.day {
+  font-size: 1.4rem;
+}
+
+.month {
+  text-transform: uppercase;
+  font-size: 1rem;
+}
+
 .category {
   background-color: #e54c3a;
   color: white;

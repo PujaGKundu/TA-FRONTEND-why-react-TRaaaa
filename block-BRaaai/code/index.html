@@ -34,28 +34,52 @@
     <div id="card"></div>
 
     <script type="text/babel">
+      const monthNames = [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December",
+      ];
+      let cardInfo = {
+        title: "City Lights in New York",
+        date: new Date("2017-01-26"),
+        comments: 67,
+        subTitle: "The city that never sleeps.",
+        description:
+          "New York, the largest city in the U.S., is an architectural marvel with plenty of historic monuments, magnificent buildings and countless dazzling skyscrapers.",
+        category: "photos",
+        imageURL:
+          "https://images.unsplash.com/photo-1610874933184-7728fd666162?ixid=MXwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzfHx8ZW58MHx8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",
+      };
       let div = (
         <>
-          <div class="container">
-            <div class="imgHolder">
-              <img
-                src="https://images.unsplash.com/photo-1610874933184-7728fd666162?ixid=MXwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzfHx8ZW58MHx8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60"
-                alt="Image"
-              />
-              <div class="date">27 MAR</div>
-              <div class="category">Photos</div>
+          <div className="container">
+            <div className="imgHolder">
+              <img src={cardInfo.imageURL} alt="Image" />
+              <div className="date">
+                <div className="day">{cardInfo.date.getDate()}</div>
+                <div className="month">
+                  {monthNames[cardInfo.date.getMonth()].slice(0, 3)}
+                </div>
+              </div>
+              <div className="category">{cardInfo.category}</div>
             </div>
-            <div class="contain">
-              <h1>City Lights in New York</h1>
-              <h2>The city that never sleeps.</h2>
-              <p>
-                New York, the largest city in the U.S., is an architectural
-                marvel with plenty of historic monuments, magnificent buildings
-                and countless dazzling skyscrapers.
-              </p>
-              <p class="comment">
+            <div className="contain">
+              <h1>{cardInfo.title}</h1>
+              <h2>{cardInfo.subTitle}</h2>
+              <p>{cardInfo.description}</p>
+              <p className="comment">
                 06 mins ago &nbsp; &nbsp;
-                <i class="fa-solid fa-comments"></i>&nbsp; 39 comments
+                <i className="fa fa-comments"></i>&nbsp; {cardInfo.comments}{" "}
+                comments
               </p>
             </div>
           </div>
