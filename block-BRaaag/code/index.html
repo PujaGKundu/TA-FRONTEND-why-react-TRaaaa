@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movie Watch List</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Movie Watch List</h1>
+      <input
+        type="text"
+        class="movie_name"
+        placeholder="Enter the movie name!"
+      />
+      <ul class="movies_list"></ul>
+    </div>
+
+    <script
+      crossorigin
+      src="https://unpkg.com/react@17/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
+    ></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+      let input = document.querySelector('input[type="text"]');
+      let rootElm = document.querySelector(".movies_list");
+
+      let allMovies = [
+        {
+          name: "Mission Impossible",
+          watched: "To Watch",
+        },
+        {
+          name: "Up",
+          watched: "Watched",
+        },
+      ];
+
+      input.addEventListener("keydown", (event) => {
+        if (event.keyCode === 13) {
+          allMovies.push({
+            name: event.target.value,
+            watched: "To Watch",
+          });
+          event.target.value = "";
+          createMovieUI();
+        }
+      });
+
+      function changeWatch(event) {
+        let id = event.target.dataset.id;
+        if (allMovies[id].watched === "To Watch") {
+          allMovies[id].watched = "Watched";
+        } else {
+          allMovies[id].watched = "To Watch";
+        }
+        createMovieUI();
+      }
+
+      let elm = React.createElement;
+
+      function createMovieUI() {
+        let movies = allMovies.map((movie, i) => {
+          return (
+            <li key={movie.name}>
+              <p htmlFor={i}>{movie.name}</p>
+              <span data-id={i} onClick={changeWatch}>
+                {movie.watched}
+              </span>
+            </li>
+          );
+        });
+        ReactDOM.render(movies, rootElm);
+      }
+
+      createMovieUI();
+    </script>
+  </body>
+</html>
