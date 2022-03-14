@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <script
+      crossorigin
+      src="https://unpkg.com/react@17/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
+    ></script>
+
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+      let rootElm = document.getElementById("root");
+
+      let fruits = [
+        { id: "apple", value: "🍎 apple" },
+        { id: "orange", value: "🍊 orange" },
+        { id: "grape", value: "🍇 grape" },
+        { id: "pear", value: "🍐 pear" },
+      ];
+
+      function handleClick1() {
+        alert(`Hello React Event`);
+      }
+
+      function handleClick2() {
+        alert(`To learn React use https://reactjs.org`);
+        alert(`React and ReactDOM works together`);
+        alert(`Babel helps in writing JSX`);
+      }
+
+      function handleClick3(name) {
+        alert(`Hello ${name}`);
+      }
+
+      function handleClick5(name) {
+        alert(`Fruit: ${name}`);
+      }
+
+      function fruitsUI() {
+        let fruit = fruits.map((f) => {
+          return (
+            <>
+              <h2>Article 5</h2>
+              <li key={f.id}>
+                <button onClick={() => handleClick5(f.id)}>{f.value}</button>
+              </li>
+            </>
+          );
+        });
+        ReactDOM.render(fruit, rootElm);
+      }
+      /*
+      let article = (
+        <>
+          <h2>Article 1</h2>
+          <button onClick={handleClick1}>Click Me!</button>
+          <hr />
+          <h2>Article 2</h2>
+          <button onClick={handleClick2}>How can I help you?</button>
+          <hr />
+          <h2>Article 3</h2>
+          <button onClick={() => handleClick3("Arya")}>Arya</button>
+          <button onClick={() => handleClick3("John")}>John</button>
+          <button onClick={() => handleClick3("Bran")}>Bran</button>
+          <hr />
+        </>
+      );
+*/
+      fruitsUI();
+      // ReactDOM.render(article, rootElm);
+    </script>
+  </body>
+</html>
