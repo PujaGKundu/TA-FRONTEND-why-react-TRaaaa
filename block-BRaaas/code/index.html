@@ -31,56 +31,74 @@
         { id: "pear", value: "🍐 pear" },
       ];
 
-      function handleClick1() {
-        alert(`Hello React Event`);
+      function Article1() {
+        return (
+          <>
+            <h2>Article 1</h2>
+            <button
+              onClick={() => {
+                alert(`Hello React Event`);
+              }}
+            >
+              Click Me!
+            </button>
+            <hr />
+          </>
+        );
       }
 
-      function handleClick2() {
-        alert(`To learn React use https://reactjs.org`);
-        alert(`React and ReactDOM works together`);
-        alert(`Babel helps in writing JSX`);
+      function Article2() {
+        return (
+          <>
+            <h2>Article 2</h2>
+            <button
+              onClick={() => {
+                alert(`To learn React use https://reactjs.org`);
+                alert(`React and ReactDOM works together`);
+                alert(`Babel helps in writing JSX`);
+              }}
+            >
+              How can I help you?
+            </button>
+          </>
+        );
       }
 
-      function handleClick3(name) {
-        alert(`Hello ${name}`);
+      function Article3() {
+        let names = ["Arya", "John", "Bran"];
+
+        return names.map((name) => (
+          <button
+            key={name}
+            onClick={() => {
+              alert(`Hello ${name}`);
+            }}
+          >
+            {name}
+          </button>
+        ));
       }
 
-      function handleClick5(name) {
-        alert(`Fruit: ${name}`);
+      function Article4() {
+        return fruits.map((f) => (
+          <button
+            key={f.id}
+            onClick={() => {
+              alert(`Fruit: ${f.id}`);
+            }}
+          >
+            {f.value}
+          </button>
+        ));
       }
 
-      function fruitsUI() {
-        let fruit = fruits.map((f) => {
-          return (
-            <>
-              <h2>Article 5</h2>
-              <li key={f.id}>
-                <button onClick={() => handleClick5(f.id)}>{f.value}</button>
-              </li>
-            </>
-          );
-        });
-        ReactDOM.render(fruit, rootElm);
-      }
-      /*
-      let article = (
+      //fruitsUI();
+      ReactDOM.render(
         <>
-          <h2>Article 1</h2>
-          <button onClick={handleClick1}>Click Me!</button>
-          <hr />
-          <h2>Article 2</h2>
-          <button onClick={handleClick2}>How can I help you?</button>
-          <hr />
-          <h2>Article 3</h2>
-          <button onClick={() => handleClick3("Arya")}>Arya</button>
-          <button onClick={() => handleClick3("John")}>John</button>
-          <button onClick={() => handleClick3("Bran")}>Bran</button>
-          <hr />
-        </>
+          <Article1 /> <Article2 /> <Article3 /> <Article4 />
+        </>,
+        rootElm
       );
-*/
-      fruitsUI();
-      // ReactDOM.render(article, rootElm);
     </script>
   </body>
 </html>
