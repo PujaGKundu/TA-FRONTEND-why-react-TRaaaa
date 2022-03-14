@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <script
+      crossorigin
+      src="https://unpkg.com/react@17/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
+    ></script>
+
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+      let rootElm = document.getElementById("root");
+
+      let fruits = [
+        { id: "apple", value: "🍎 apple" },
+        { id: "orange", value: "🍊 orange" },
+        { id: "grape", value: "🍇 grape" },
+        { id: "pear", value: "🍐 pear" },
+      ];
+
+      function Article1() {
+        return (
+          <>
+            <h2>Article 1</h2>
+            <button
+              onClick={() => {
+                alert(`Hello React Event`);
+              }}
+            >
+              Click Me!
+            </button>
+            <hr />
+          </>
+        );
+      }
+
+      function Article2() {
+        return (
+          <>
+            <h2>Article 2</h2>
+            <button
+              onClick={() => {
+                alert(`To learn React use https://reactjs.org`);
+                alert(`React and ReactDOM works together`);
+                alert(`Babel helps in writing JSX`);
+              }}
+            >
+              How can I help you?
+            </button>
+          </>
+        );
+      }
+
+      function Article3() {
+        let names = ["Arya", "John", "Bran"];
+
+        return names.map((name) => (
+          <button
+            key={name}
+            onClick={() => {
+              alert(`Hello ${name}`);
+            }}
+          >
+            {name}
+          </button>
+        ));
+      }
+
+      function Article4() {
+        return fruits.map((f) => (
+          <button
+            key={f.id}
+            onClick={() => {
+              alert(`Fruit: ${f.id}`);
+            }}
+          >
+            {f.value}
+          </button>
+        ));
+      }
+
+      //fruitsUI();
+      ReactDOM.render(
+        <>
+          <Article1 /> <Article2 /> <Article3 /> <Article4 />
+        </>,
+        rootElm
+      );
+    </script>
+  </body>
+</html>
