@@ -7,5 +7,3 @@
 - Break the UI into small small component
 - Try making components small
 - You can copy stylesheet and HTML (convert into React)
-
-
