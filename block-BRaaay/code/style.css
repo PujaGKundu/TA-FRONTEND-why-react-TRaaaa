@@ -161,11 +161,9 @@ p {
 .flex-15 {
   width: 250px;
   margin: 1.5rem;
-}
-
-h2 {
   font-size: 1.5rem;
   font-weight: 600;
+  text-transform: capitalize;
 }
 
 .code {
