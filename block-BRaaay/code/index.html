@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script
+      crossorigin
+      src="https://unpkg.com/react@17/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
+    ></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="./colors.js"></script>
+    <script type="text/babel">
+      function Colors() {
+        return Object.keys(colors).map((key) => (
+          <Color name={key} allColors={colors[key]} />
+        ));
+      }
+
+      function Color(props) {
+        return (
+          <>
+            <div className="flex">
+              <div className="flex-15">{props.name}</div>
+              <ul>
+                {props.allColors.map((color, i) => (
+                  <li>
+                    <div
+                      className="box"
+                      style={{ backgroundColor: color }}
+                    ></div>
+                    <span className="flex">
+                      <p className="code">{i === 0 ? 50 : i * 100}</p>
+                      <p className="color">{color}</p>
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </>
+        );
+      }
+
+      ReactDOM.render(<Colors />, document.getElementById("root"));
+    </script>
+  </body>
+</html>
